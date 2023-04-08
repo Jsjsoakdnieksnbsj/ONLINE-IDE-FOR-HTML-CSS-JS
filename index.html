@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">	
+	<link rel="stylesheet" type="text/css" href="/Style.css">
+	<script src="https://kit.fontawsome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+	<title>SketchCode</title>
+	<style>
+		body {
+  			font-family: "Sofia", sans-serif;
+  			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<center><h1>SKETCHCODE</h1>
+	<font color="red" size="4px">A code editor for HTML,CSS and Javascript</font></center>
+	<br/>
+	<br/>
+	
+	(drag the bottom right of the text area to mantain the size)
+	<br />
+	<br/>
+	<br/>
+	
+	<div class="container">
+		<div class="left">
+			<label>HTML</label><br/>
+			<textarea id="html-code" onkeyup="run()"></textarea>
+			<br/>
+			<label>CSS</label><br/>
+			<textarea id="css-code" onkeyup="run()"></textarea>
+			<br/>
+			<label>JAVASCRIPT</label><br/>	
+			<textarea id="js-code" onkeyup="run()"></textarea>
+			<br/>
+		</div>
+		<div class="right">
+				<label>OUTPUT</label><br/>
+				<iframe id="output" height="600px" width="1000"></iframe>
+			</div>
+	</div>
+	<br />
+	<br />
+	<br/>
+	<br/>
+	<br />
+	<script type="text/javascript">
+		
+		function run() {
+			let htmlCode = document.getElementById("html-code").value;
+			let cssCode = document.getElementById("css-code").value;
+			let jsCode = document.getElementById("js-code").value;
+			let Output = document.getElementById("output");
+
+			output.contentDocument.body.innerHTML = htmlCode+"<style>"+cssCode+"</style>";
+			output.contentWindow.eval(jsCode);
+
+		}
+
+	</script>
+</body>
+</html>
